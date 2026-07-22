@@ -4,7 +4,6 @@ export default {
     const pathname = url.pathname.toLowerCase();
     const userAgent = (request.headers.get('user-agent') || '').toLowerCase();
     
-    // Custom HTTP Headers to impress engineers who inspect your request
     const customHeaders = {
       'Access-Control-Allow-Origin': '*',
       'X-Powered-By': 'Cloudflare Workers & Linux Mint',
@@ -12,83 +11,85 @@ export default {
       'X-Status': 'Ready to build awesome things!'
     };
 
-    // ------------------------------------------------------------------
-    // FEATURE 1: THE JSON ENDPOINT (/json)
-    // ------------------------------------------------------------------
     if (pathname === '/json') {
       const jsonData = {
         name: "Dulith Divisekara",
         title: "Information Technology Undergraduate",
-        education: "B.Sc (Hons) in Information Technology - SLIIT",
-        skills: ["Java", "JavaScript", "SQL", "TCP/IP", "Linux Mint", "Arduino"],
+        tagline: "I combine core computer science fundamentals with modern AI tools to build and deploy software fast.",
+        skills: {
+          code: ["Java", "JavaScript", "Bash", "HTML/CSS"],
+          technology: ["Spring Boot", "Cloudflare Workers", "Maven", "Linux"],
+          concepts: ["Full-Stack Web", "Networking", "Automation", "Security Operations"]
+        },
         contact: {
           email: "dulithmdivisekara@gmail.com",
           github: "https://github.com/dulithdivisekara",
           linkedin: "https://linkedin.com/in/dulithdivisekara"
         }
       };
-      return new Response(JSON.stringify(jsonData, null, 2), {
+      return new Response(JSON.stringify(jsonData, null, 2) + '\n', {
         headers: { ...customHeaders, 'content-type': 'application/json; charset=utf-8' }
       });
     }
 
-    // ------------------------------------------------------------------
-    // FEATURE 2: THE EASTER EGG (/secret)
-    // ------------------------------------------------------------------
     if (pathname === '/secret') {
       const secretMessage = `
-\x1b[1;32m🎉 You found the hidden endpoint! 🎉\x1b[0m
-\x1b[1;36mHere is my networking philosophy:\x1b[0m "There is no place like 127.0.0.1"
-Feel free to reach out on LinkedIn—I'd love to chat about tech, IoT, or music!
+\x1b[1;36m╭── \x1b[1;32mSYSTEM.OVERRIDE_GRANTED\x1b[1;36m ───────────────────────────────────────────────────╮\x1b[0m
+  \x1b[1;35m[!] Hidden Protocol Initialized\x1b[0m
+
+  \x1b[1;33m■ Networking Philosophy :\x1b[0m "There is no place like 127.0.0.1"
+  \x1b[1;33m■ Development Approach  :\x1b[0m I treat AI-assisted development as a force 
+                            multiplier, not a shortcut.
+  
+  Let's build something scalable. Reach out on LinkedIn!
+\x1b[1;36m╰──────────────────────────────────────────────────────────────────────────────╯\x1b[0m
 `;
-    return new Response(JSON.stringify(jsonData, null, 2) + '\n', {
-    headers: { ...customHeaders, 'content-type': 'application/json; charset=utf-8' }
-    });
+      return new Response(secretMessage, {
+        headers: { ...customHeaders, 'content-type': 'text/plain; charset=utf-8' }
+      });
     }
 
-    // ------------------------------------------------------------------
-    // MAIN ROUTING: CLI (curl/wget) vs BROWSER
-    // ------------------------------------------------------------------
     if (userAgent.includes('curl') || userAgent.includes('wget')) {
       const asciiResume = `
-\x1b[1;36m======================================================================\x1b[0m
-\x1b[1;32m   DULITH DIVISEKARA | INFORMATION TECHNOLOGY UNDERGRADUATE\x1b[0m
-\x1b[1;36m======================================================================\x1b[0m
+\x1b[1;36m\x1b[0;33;40m    \x1b[0;90;1;40m▄▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄\x1b[0;90;1;43m░█\x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄▄\x1b[0;33;40m    \x1b[0;37;40m      \x1b[0;33;40m    \x1b[0;90;1;40m▄▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m     \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;33;40m    \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;33;40m       \x1b[0m
+\x1b[1;36m\x1b[0;90;1;40m▄█▀▀\x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;90;1;40m▀██\x1b[0;33;40m  \x1b[0;90;1;43m▀\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;90;1;40m██\x1b[0;33;40m    \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m▒\x1b[0;90;1;40m█▀▀\x1b[0;90;1;43m▓\x1b[0;90;1;40m█\x1b[0;37;40m      \x1b[0;90;1;40m▄█▀▀\x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▀██\x1b[0;33;40m  \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m█\x1b[0;90;1;40m█▀▀█▄\x1b[0;37;40m \x1b[0;90;1;40m██▀▀\x1b[0;90;1;43m▀\x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█▄▄█▀\x1b[0;37;40m \x1b[0;90;1;40m▀\x1b[0;90;1;43m░\x1b[0;90;1;40m█▀▀█▄\x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█▀▀\x1b[0;90;1;43m \x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;40m▀\x1b[0;90;1;43m░\x1b[0;90;1;40m█▀▀█▄\x1b[0m
+\x1b[1;36m\x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m░▓\x1b[0;37;40m \x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0;33;40m    \x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m ▀\x1b[0;33;40m \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;37;40m      \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m ▒\x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m░▀\x1b[0;33;40m  \x1b[0;90;1;40m▀▀\x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;90;1;43m ▀\x1b[0;33;40m  \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m░▓\x1b[0;33;40m  \x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m  \x1b[0;90;1;43m░\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m░▓\x1b[0;33;40m  \x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0m
+\x1b[1;36m\x1b[0;90;1;43m░▒\x1b[0;33;40m▄▄\x1b[0;90;1;43m  \x1b[0;33;40m \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m  \x1b[0;33;40m▄▄\x1b[0;90;1;43m  \x1b[0;37;40m \x1b[0;90;1;43m░▓\x1b[0;33;40m  \x1b[0;90;1;43m ▓\x1b[0;37;40m \x1b[0;93;1;43m▄ \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m ▓\x1b[0;33;40m \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m \x1b[0;33;40m█  \x1b[0;93;1;43m▄\x1b[0;90;1;43m▒\x1b[0;37;40m      \x1b[0;90;1;43m░▒\x1b[0;33;40m▄▄\x1b[0;90;1;43m  \x1b[0;33;40m \x1b[0;37;40m \x1b[0;93;1;43m▄ \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m░▀\x1b[0;33;40m▄▄\x1b[0;90;1;43m░\x1b[0;33;40m▀\x1b[0;37;40m \x1b[0;93;1;43m▄ \x1b[0;37;40m \x1b[0;33;40m ▀▀▀▀\x1b[0;90;1;43m░▓\x1b[0;37;40m \x1b[0;33;40m█\x1b[0;90;1;43m▓\x1b[0;33;40m▀▀▀▀\x1b[0;37;40m \x1b[0;90;1;43m ▓\x1b[0;33;40m  \x1b[0;93;1;43m░\x1b[0;90;1;43m▒\x1b[0;37;40m \x1b[0;33;40m \x1b[0;93;1;43m░\x1b[0;33;40m█▀▀\x1b[0;90;1;43m░\x1b[0;93;1;43m░\x1b[0;37;40m \x1b[0;90;1;43m ▓\x1b[0;33;40m    \x1b[0;37;40m \x1b[0;33;40m \x1b[0;93;1;43m░\x1b[0;33;40m█▀▀\x1b[0;90;1;43m░\x1b[0;93;1;43m░\x1b[0m
+\x1b[1;36m\x1b[0;37;40m        \x1b[0;33;40m     ▀▀\x1b[0;37;40m \x1b[0;33;40m ▀▀▀▀▀\x1b[0;37;40m \x1b[0;93;1;40m▀▀\x1b[0;37;40m      \x1b[0;33;40m     \x1b[0;93;1;40m▀▀\x1b[0;37;40m              \x1b[0;93;1;40m▀▀\x1b[0;37;40m         \x1b[0;93;1;40m▀▀\x1b[0;37;40m \x1b[0;33;40m \x1b[0;93;1;40m▀\x1b[0;33;40m▀▀▀▀▀\x1b[0;37;40m \x1b[0;33;40m ▀▀▀▀▀\x1b[0;37;40m \x1b[0;33;40m    \x1b[0;93;1;40m▀▀\x1b[0;37;40m \x1b[0;33;40m     ▀▀\x1b[0;37;40m        \x1b[0;33;40m     ▀▀\x1b[0m
+\x1b[1;90m                                                               v2.0.0 | \x1b[1;32mIT Undergraduate\x1b[0m
 
-\x1b[1;33m[ ABOUT ME ]\x1b[0m
-  • IT Undergraduate specializing in networking, serverless tech, & IoT.
-  • Actively seeking collaborative roles to build scalable, practical systems.
+\x1b[1;36m╭── \x1b[1;37mABOUT ME\x1b[1;36m ────────────────────────────────────────────────────────────────────────╮\x1b[0m
+  I am an Information Technology undergraduate who builds systems.
+  I combine core computer science fundamentals with modern AI tools to design, 
+  build, and deploy functional software fast. 
 
-\x1b[1;33m[ EDUCATION ]\x1b[0m
-  • B.Sc (Hons) in Information Technology 
-    Sri Lanka Institute of Information Technology (SLIIT)
+\x1b[1;36m╭── \x1b[1;37mCORE SKILLS\x1b[1;36m ─────────────────────────────────────────────────────────────────────╮\x1b[0m
+  \x1b[1;33m■ Code       :\x1b[0m Java, JavaScript, Bash, HTML/CSS
+  \x1b[1;33m■ Technology :\x1b[0m Spring Boot, Cloudflare Workers, Maven, Linux
+  \x1b[1;33m■ Concepts   :\x1b[0m Full-Stack Web, Networking, Automation, Security Operations
 
-\x1b[1;33m[ TECHNICAL SKILLS ]\x1b[0m
-  • Core Languages : Java, JavaScript, SQL
-  • Networking     : TCP/IP, DHCP, Routing & Band Configuration, VoLTE
-  • Platforms & OS : Linux (Mint), Git/GitHub, Cloudflare Serverless
-  • Hardware/IoT   : Arduino Development, Sensor Systems & Automation
+\x1b[1;36m╭── \x1b[1;37mFEATURED PROJECTS\x1b[1;36m ───────────────────────────────────────────────────────────────╮\x1b[0m
+  \x1b[1;32m★ TixCore Event Booking System\x1b[0m
+    A dependency-light event ticketing platform with custom databases.
+  
+  \x1b[1;32m★ OpenClaw Backup\x1b[0m
+    An autonomous disaster-recovery pipeline for AI agents.
 
-\x1b[1;33m[ EXPERIENCES & PROJECTS ]\x1b[0m
-  • Technatia Technology Exhibition
-    - Assisted with technical committee management and event coordination.
-  • Arduino Smart Home / Sensor Automation
-    - Designed and engineered embedded hardware logic and hardware wiring layouts.
-  • Serverless CLI CV (This Script)
-    - Built a smart-routing worker to handle conditional HTTP request headers.
+  \x1b[1;32m★ SLIIT Y2S1 Vault\x1b[0m
+    A version-controlled, AI-augmented technical knowledge base.
 
-\x1b[1;33m[ HOBBIES & INTERESTS ]\x1b[0m
-  • Music production & acoustic guitar
-  • Classic motorcycles & mechanical restoration
-  • Customizing Linux environments & exploring edge computing
+  \x1b[1;32m★ Terminal CV (This Script)\x1b[0m
+    A CLI-first resume hosted on global edge networks.
 
-\x1b[1;33m[ CONTACT ]\x1b[0m
-  • Email    : dulithmdivisekara@gmail.com
-  • GitHub   : https://github.com/dulithdivisekara
-  • LinkedIn : https://linkedin.com/in/dulithdivisekara
+\x1b[1;36m╭── \x1b[1;37mCONTACT & LINKS\x1b[1;36m ─────────────────────────────────────────────────────────────────╮\x1b[0m
+  \x1b[1;35m✉ Email    :\x1b[0m dulithmdivisekara@gmail.com
+  \x1b[1;35m⑂ GitHub   :\x1b[0m github.com/dulithdivisekara
+  \x1b[1;35m@ LinkedIn :\x1b[0m linkedin.com/in/dulithdivisekara
 
-\x1b[1;35mTip: Try running: curl https://cv.dulithdivisekara.workers.dev/json\x1b[0m
-\x1b[1;35mOr search for hidden easter eggs: curl https://cv.dulithdivisekara.workers.dev/secret\x1b[0m
+\x1b[1;90m───────────────────────────────────────────────────────────────────────────────────────\x1b[0m
+\x1b[1;90mTip: curl cv.dulithdivisekara.workers.dev/json   \x1b[1;36m(View data as JSON)\x1b[0m
+\x1b[1;90mTip: curl cv.dulithdivisekara.workers.dev/secret \x1b[1;36m(Execute hidden protocol)\x1b[0m
+\x1b[1;90m───────────────────────────────────────────────────────────────────────────────────────\x1b[0m
 `;
 
       return new Response(asciiResume, {
@@ -96,7 +97,6 @@ Feel free to reach out on LinkedIn—I'd love to chat about tech, IoT, or music!
       });
     }
 
-    // WEB BROWSER: Safe redirect to LinkedIn
     return Response.redirect('https://linkedin.com/in/dulithdivisekara', 301);
   }
 }
