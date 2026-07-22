@@ -11,13 +11,13 @@ You can interact with the live worker using your terminal:
 
 ```bash
 # View the standard ASCII resume
-curl [https://cv.dulithdivisekara.workers.dev](https://cv.dulithdivisekara.workers.dev)
+curl https://cv.dulithdivisekara.workers.dev
 
 # Get the resume data in structured JSON format
-curl [https://cv.dulithdivisekara.workers.dev/json](https://cv.dulithdivisekara.workers.dev/json)
+curl https://cv.dulithdivisekara.workers.dev/json
 
 # Trigger the hidden easter egg
-curl [https://cv.dulithdivisekara.workers.dev/secret](https://cv.dulithdivisekara.workers.dev/secret)
+curl https://cv.dulithdivisekara.workers.dev/secret
 
 ```
 
