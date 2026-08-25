@@ -6,7 +6,9 @@
 
 A serverless command-line interface resume deployed on the edge. This project detects the client environment and routes traffic accordingly. It serves ASCII layouts to terminals and redirects standard web browsers to a graphical user interface.
 
-![Terminal Execution Demo](assets/terminal_demo.gif)
+<p align="center">
+  <img src="assets/terminal_demo.gif" alt="Terminal Execution Demo" width="800">
+</p>
 
 ## Viewing the Portfolio Live
 
@@ -14,9 +16,9 @@ You can interact with the live deployed worker using your system native terminal
 
 | Operating System | Native Terminal Command |
 | :--- | :--- |
-| **Linux & Mac** | `curl https://whoami.dulithdivisekara.workers.dev` |
-| **Windows (PowerShell)** | `Invoke-RestMethod https://whoami.dulithdivisekara.workers.dev` |
-| **Windows (CMD)** | `curl.exe https://whoami.dulithdivisekara.workers.dev` |
+| **Linux & Mac** | `curl whoami.dulithdivisekara.workers.dev` |
+| **Windows (PowerShell)** | `Invoke-RestMethod whoami.dulithdivisekara.workers.dev` |
+| **Windows (CMD)** | `curl.exe whoami.dulithdivisekara.workers.dev` |
 
 *Note: Accessing the URL via a standard web browser will automatically redirect you to the visual portfolio at dulithdivisekara.pages.dev.*
 
