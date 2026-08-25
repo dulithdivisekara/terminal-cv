@@ -3,7 +3,7 @@ export default {
     const url = new URL(request.url);
     const pathname = url.pathname.toLowerCase();
     const userAgent = (request.headers.get('user-agent') || '').toLowerCase();
-    
+
     const customHeaders = {
       'Access-Control-Allow-Origin': '*',
       'X-Powered-By': 'Cloudflare Workers & Linux Mint',
@@ -49,7 +49,8 @@ export default {
       });
     }
 
-    if (userAgent.includes('curl') || userAgent.includes('wget')) {
+    // Added 'powershell' to ensure native Windows terminals correctly trigger the ASCII response
+    if (userAgent.includes('curl') || userAgent.includes('wget') || userAgent.includes('powershell')) {
       const asciiResume = `
 \x1b[1;36m\x1b[0;33;40m    \x1b[0;90;1;40m▄▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄\x1b[0;90;1;43m░█\x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄▄\x1b[0;33;40m    \x1b[0;37;40m      \x1b[0;33;40m    \x1b[0;90;1;40m▄▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m     \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;33;40m    \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;33;40m       \x1b[0m
 \x1b[1;36m\x1b[0;90;1;40m▄█▀▀\x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;90;1;40m▀██\x1b[0;33;40m  \x1b[0;90;1;43m▀\x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;90;1;40m██\x1b[0;33;40m    \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m▒\x1b[0;90;1;40m█▀▀\x1b[0;90;1;43m▓\x1b[0;90;1;40m█\x1b[0;37;40m      \x1b[0;90;1;40m▄█▀▀\x1b[0;90;1;43m▒\x1b[0;90;1;40m█\x1b[0;33;40m \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▀██\x1b[0;33;40m  \x1b[0;90;1;43m \x1b[0;90;1;40m█\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m \x1b[0;90;1;43m█\x1b[0;90;1;40m█▀▀█▄\x1b[0;37;40m \x1b[0;90;1;40m██▀▀\x1b[0;90;1;43m▀\x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█▄▄█▀\x1b[0;37;40m \x1b[0;90;1;40m▀\x1b[0;90;1;43m░\x1b[0;90;1;40m█▀▀█▄\x1b[0;37;40m \x1b[0;90;1;43m░\x1b[0;90;1;40m█▀▀\x1b[0;90;1;43m \x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;40m▀\x1b[0;90;1;43m░\x1b[0;90;1;40m█▀▀█▄\x1b[0m
@@ -87,8 +88,8 @@ export default {
   \x1b[1;35m@ LinkedIn :\x1b[0m linkedin.com/in/dulithdivisekara
 
 \x1b[1;90m───────────────────────────────────────────────────────────────────────────────────────\x1b[0m
-\x1b[1;90mTip: curl cv.dulithdivisekara.workers.dev/json   \x1b[1;36m(View data as JSON)\x1b[0m
-\x1b[1;90mTip: curl cv.dulithdivisekara.workers.dev/secret \x1b[1;36m(Execute hidden protocol)\x1b[0m
+\x1b[1;90mTip: curl whoami.dulithdivisekara.workers.dev/json   \x1b[1;36m(View data as JSON)\x1b[0m
+\x1b[1;90mTip: curl whoami.dulithdivisekara.workers.dev/secret \x1b[1;36m(Execute hidden protocol)\x1b[0m
 \x1b[1;90m───────────────────────────────────────────────────────────────────────────────────────\x1b[0m
 `;
 
@@ -97,6 +98,7 @@ export default {
       });
     }
 
-    return Response.redirect('https://linkedin.com/in/dulithdivisekara', 301);
+    // Updated Browser redirect
+    return Response.redirect('https://dulithdivisekara.pages.dev', 301);
   }
 }
