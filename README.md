@@ -12,11 +12,11 @@ You can interact with the live deployed worker using your system native terminal
 
 | Operating System | Native Terminal Command |
 | :--- | :--- |
-| **Linux & Mac** | `curl whoami.dulithdivisekara.workers.dev` |
-| **Windows (PowerShell)** | `Invoke-RestMethod whoami.dulithdivisekara.workers.dev` |
-| **Windows (CMD)** | `curl.exe whoami.dulithdivisekara.workers.dev` |
+| **Linux & Mac** | `curl whoami.dulith.me` |
+| **Windows (PowerShell)** | `Invoke-RestMethod whoami.dulith.me` |
+| **Windows (CMD)** | `curl.exe whoami.dulith.me` |
 
-*Note: Accessing whoami.dulithdivisekara.workers.dev via a standard web browser will automatically redirect you to the visual portfolio at dulithdivisekara.pages.dev.*
+*Note: Accessing whoami.dulith.me via a standard web browser will automatically redirect you to the visual portfolio at dulithdivisekara.pages.dev.*
 
 ## Technical Architecture
 

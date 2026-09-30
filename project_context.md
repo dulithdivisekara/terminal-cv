@@ -1,8 +1,8 @@
 # project_context.md — Terminal CV Blueprint
 
 > **Purpose:** Complete reference document for an external AI assistant.  
-> **Generated:** 2026-09-30 | **Project version:** v2.0.0  
-> **Live URL:** `whoami.dulithdivisekara.workers.dev`
+> **Generated:** 2026-09-30 | **Project version:** v2.1.0  
+> **Live URL:** `whoami.dulith.me`
 
 ---
 
@@ -140,7 +140,7 @@ kept in sync manually after any change.
 | **Name** | Dulith Divisekara |
 | **Title** | Information Technology Undergraduate |
 | **Tagline** | "I combine core computer science fundamentals with modern AI tools to build and deploy software fast." |
-| **Version** | v2.0.0 |
+| **Version** | v2.1.0 |
 
 ### Skills (Baseline — Pre-Update)
 
