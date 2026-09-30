@@ -20,7 +20,7 @@ You can interact with the live deployed worker using your system native terminal
 
 </div>
 
-*Note: Accessing whoami.dulith.me via a standard web browser will automatically redirect you to the visual portfolio at dulithdivisekara.pages.dev.*
+*Note: Accessing whoami.dulith.me via a standard web browser will automatically redirect you to the visual portfolio at dulith.me.*
 
 ## Technical Architecture
 
