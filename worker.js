@@ -119,6 +119,6 @@ export default {
       });
     }
 
-    return Response.redirect('https://dulithdivisekara.pages.dev', 301);
+    return Response.redirect('https://dulith.me', 301);
   }
 }
