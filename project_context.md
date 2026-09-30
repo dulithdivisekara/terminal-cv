@@ -73,6 +73,8 @@ terminal-cv/
 │
 ├── .gitignore         ← Ignores: logs, node_modules/, .wrangler/, .idea/, .vscode/
 │
+├── terminal_gif_template.md ← Blueprint for regenerating the terminal_demo.gif animation.
+│
 └── assets/
     └── terminal_demo.gif  ← Animated GIF demo of the terminal output.
                               Embedded in README.md for GitHub preview.
