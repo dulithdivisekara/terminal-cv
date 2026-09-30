@@ -6,7 +6,7 @@ export default {
 
     const customHeaders = {
       'Access-Control-Allow-Origin': '*',
-      'X-Powered-By': 'Cloudflare Workers & Linux Mint',
+      'X-Powered-By': 'Cloudflare Workers & Ubuntu',
       'X-Author': 'Dulith Divisekara',
       'X-Status': 'Ready to build awesome things!'
     };
@@ -17,9 +17,32 @@ export default {
         title: "Information Technology Undergraduate",
         tagline: "I combine core computer science fundamentals with modern AI tools to build and deploy software fast.",
         skills: {
-          code: ["Java", "JavaScript", "Bash", "HTML/CSS"],
-          technology: ["Spring Boot", "Cloudflare Workers", "Maven", "Linux"],
-          concepts: ["Full-Stack Web", "Networking", "Automation", "Security Operations"]
+          code: ["JavaScript", "Java", "Python", "R", "Bash", "HTML/CSS"],
+          technology: ["Docker", "MSSQL", "Cloudflare Workers", "Spring Boot", "Ubuntu"],
+          concepts: ["AI Model Training", "Serverless Edge", "Browser Extensions"]
+        },
+        projects: {
+          featured: [
+            {
+              name: "SLIIT Courseweb Cleaner",
+              description: "A context-aware browser extension designed to optimize the SLIIT Moodle interface by filtering out irrelevant modules and batch announcements.",
+              links: {
+                chrome: "https://chromewebstore.google.com/detail/sliit-courseweb-cleaner/lnoadlfhebmkhmbfmehdgoffjllgadjm",
+                edge: "https://microsoftedge.microsoft.com/addons/detail/sliit-courseweb-cleaner/gmlodfhgiopjgamoijjffcmgfenkkkhe",
+                firefox: "https://addons.mozilla.org/en-US/firefox/addon/sliit-courseweb-cleaner/"
+              }
+            },
+            {
+              name: "SLIIT IT - Knowledge Base (Y1S2)",
+              description: "An open-source, highly structured collection of study notes, runnable code snippets, and active recall quizzes featuring AI study partners and Mermaid.js diagrams.",
+              github: "https://github.com/dulithdivisekara"
+            },
+            {
+              name: "Terminal CV",
+              description: "A serverless command-line interface resume deployed on the edge. Dynamically detects client environments to route traffic.",
+              github: "https://github.com/dulithdivisekara/terminal-cv"
+            }
+          ]
         },
         contact: {
           email: "dulithmdivisekara@gmail.com",
@@ -49,7 +72,6 @@ export default {
       });
     }
 
-    // Added 'powershell' to ensure native Windows terminals correctly trigger the ASCII response
     if (userAgent.includes('curl') || userAgent.includes('wget') || userAgent.includes('powershell')) {
       const asciiResume = `
 \x1b[1;36m\x1b[0;33;40m    \x1b[0;90;1;40m▄▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄\x1b[0;90;1;43m░█\x1b[0;90;1;40m▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄▄\x1b[0;33;40m    \x1b[0;37;40m      \x1b[0;33;40m    \x1b[0;90;1;40m▄▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m     \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;33;40m    \x1b[0;90;1;40m▄▄\x1b[0;37;40m \x1b[0;33;40m       \x1b[0;37;40m \x1b[0;33;40m      \x1b[0;37;40m \x1b[0;33;40m       \x1b[0m
@@ -65,27 +87,26 @@ export default {
   build, and deploy functional software fast. 
 
 \x1b[1;36m╭── \x1b[1;37mCORE SKILLS\x1b[1;36m ─────────────────────────────────────────────────────────────────────╮\x1b[0m
-  \x1b[1;33m■ Code       :\x1b[0m Java, JavaScript, Bash, HTML/CSS
-  \x1b[1;33m■ Technology :\x1b[0m Spring Boot, Cloudflare Workers, Maven, Linux
-  \x1b[1;33m■ Concepts   :\x1b[0m Full-Stack Web, Networking, Automation, Security Operations
+  \x1b[1;33m■ Code       :\x1b[0m JavaScript, Java, Python, R, Bash, HTML/CSS
+  \x1b[1;33m■ Technology :\x1b[0m Docker, MSSQL, Cloudflare Workers, Spring Boot, Ubuntu
+  \x1b[1;33m■ Concepts   :\x1b[0m AI Model Training, Serverless Edge, Browser Extensions
 
 \x1b[1;36m╭── \x1b[1;37mFEATURED PROJECTS\x1b[1;36m ───────────────────────────────────────────────────────────────╮\x1b[0m
-  \x1b[1;32m★ TixCore Event Booking System\x1b[0m
-    A dependency-light event ticketing platform with custom databases.
-  
-  \x1b[1;32m★ OpenClaw Backup\x1b[0m
-    An autonomous disaster-recovery pipeline for AI agents.
+  \x1b[1;32m★ SLIIT Courseweb Cleaner\x1b[0m
+    A context-aware browser extension filtering irrelevant Moodle modules.
+    ↳ Install: \x1b]8;;https://chromewebstore.google.com/detail/sliit-courseweb-cleaner/lnoadlfhebmkhmbfmehdgoffjllgadjm\x07\x1b[4;36mChrome\x1b[0m\x1b]8;;\x07 • \x1b]8;;https://microsoftedge.microsoft.com/addons/detail/sliit-courseweb-cleaner/gmlodfhgiopjgamoijjffcmgfenkkkhe\x07\x1b[4;36mEdge\x1b[0m\x1b]8;;\x07 • \x1b]8;;https://addons.mozilla.org/en-US/firefox/addon/sliit-courseweb-cleaner/\x07\x1b[4;36mFirefox\x1b[0m\x1b]8;;\x07
 
-  \x1b[1;32m★ SLIIT Y2S1 Vault\x1b[0m
-    A version-controlled, AI-augmented technical knowledge base.
+  \x1b[1;32m★ SLIIT IT Vault (Y1S2)\x1b[0m
+    An open-source, highly structured learning base with AI study partners.
 
   \x1b[1;32m★ Terminal CV (This Script)\x1b[0m
     A CLI-first resume hosted on global edge networks.
+    ↳ \x1b]8;;https://github.com/dulithdivisekara/terminal-cv\x07\x1b[4;36mView on GitHub\x1b[0m\x1b]8;;\x07
 
 \x1b[1;36m╭── \x1b[1;37mCONTACT & LINKS\x1b[1;36m ─────────────────────────────────────────────────────────────────╮\x1b[0m
   \x1b[1;35m✉ Email    :\x1b[0m dulithmdivisekara@gmail.com
-  \x1b[1;35m⑂ GitHub   :\x1b[0m github.com/dulithdivisekara
-  \x1b[1;35m@ LinkedIn :\x1b[0m linkedin.com/in/dulithdivisekara
+  \x1b[1;35m⑂ GitHub   :\x1b[0m \x1b]8;;https://github.com/dulithdivisekara\x07\x1b[4;36mgithub.com/dulithdivisekara\x1b[0m\x1b]8;;\x07
+  \x1b[1;35m@ LinkedIn :\x1b[0m \x1b]8;;https://linkedin.com/in/dulithdivisekara\x07\x1b[4;36mlinkedin.com/in/dulithdivisekara\x1b[0m\x1b]8;;\x07
 
 \x1b[1;90m───────────────────────────────────────────────────────────────────────────────────────\x1b[0m
 \x1b[1;90mTip: curl whoami.dulithdivisekara.workers.dev/json   \x1b[1;36m(View data as JSON)\x1b[0m
@@ -98,7 +119,6 @@ export default {
       });
     }
 
-    // Updated Browser redirect
     return Response.redirect('https://dulithdivisekara.pages.dev', 301);
   }
 }
