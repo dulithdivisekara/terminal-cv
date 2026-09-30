@@ -107,7 +107,7 @@ const jsonData = {
   },
   projects: { ... },
   contact: {
-    email: "dulithmdivisekara@gmail.com",
+    email: "contact@dulith.me",
     github: "https://github.com/dulithdivisekara",
     linkedin: "https://linkedin.com/in/dulithdivisekara"
   }
@@ -176,7 +176,7 @@ AI Model Training, Serverless Edge, Browser Extensions
 ### Contact & Links
 | Channel | Value |
 |---|---|
-| **Email** | dulithmdivisekara@gmail.com |
+| **Email** | contact@dulith.me |
 | **GitHub** | github.com/dulithdivisekara |
 | **LinkedIn** | linkedin.com/in/dulithdivisekara |
 

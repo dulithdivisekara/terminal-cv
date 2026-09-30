@@ -45,7 +45,7 @@ export default {
           ]
         },
         contact: {
-          email: "dulithmdivisekara@gmail.com",
+          email: "contact@dulith.me",
           github: "https://github.com/dulithdivisekara",
           linkedin: "https://linkedin.com/in/dulithdivisekara"
         }
@@ -104,7 +104,7 @@ export default {
     ↳ \x1b]8;;https://github.com/dulithdivisekara/terminal-cv\x07\x1b[4;36mView on GitHub\x1b[0m\x1b]8;;\x07
 
 \x1b[1;36m╭── \x1b[1;37mCONTACT & LINKS\x1b[1;36m ─────────────────────────────────────────────────────────────────╮\x1b[0m
-  \x1b[1;35m✉ Email    :\x1b[0m dulithmdivisekara@gmail.com
+  \x1b[1;35m✉ Email    :\x1b[0m \x1b]8;;mailto:contact@dulith.me\x07\x1b[4;36mcontact@dulith.me\x1b[0m\x1b]8;;\x07
   \x1b[1;35m⑂ GitHub   :\x1b[0m \x1b]8;;https://github.com/dulithdivisekara\x07\x1b[4;36mgithub.com/dulithdivisekara\x1b[0m\x1b]8;;\x07
   \x1b[1;35m@ LinkedIn :\x1b[0m \x1b]8;;https://linkedin.com/in/dulithdivisekara\x07\x1b[4;36mlinkedin.com/in/dulithdivisekara\x1b[0m\x1b]8;;\x07
 
