@@ -10,11 +10,15 @@ A serverless command-line interface resume deployed on the edge. This project dy
 
 You can interact with the live deployed worker using your system native terminal. Copy and paste the appropriate command below based on your environment.
 
+<div align="center">
+
 | Operating System | Native Terminal Command |
 | :--- | :--- |
 | **Linux & Mac** | `curl whoami.dulith.me` |
 | **Windows (PowerShell)** | `Invoke-RestMethod whoami.dulith.me` |
 | **Windows (CMD)** | `curl.exe whoami.dulith.me` |
+
+</div>
 
 *Note: Accessing whoami.dulith.me via a standard web browser will automatically redirect you to the visual portfolio at dulithdivisekara.pages.dev.*
 
