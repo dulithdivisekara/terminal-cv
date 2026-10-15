@@ -1,3 +1,30 @@
+// In-memory sliding rate limiter per edge isolate
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 30; // 30 req/min
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip) || { count: 0, resetTime: now + RATE_LIMIT_WINDOW_MS };
+
+  if (now > record.resetTime) {
+    record.count = 1;
+    record.resetTime = now + RATE_LIMIT_WINDOW_MS;
+  } else {
+    record.count++;
+  }
+
+  rateLimitMap.set(ip, record);
+
+  if (rateLimitMap.size > 1000) {
+    for (const [key, val] of rateLimitMap.entries()) {
+      if (now > val.resetTime) rateLimitMap.delete(key);
+    }
+  }
+
+  return record.count > MAX_REQUESTS_PER_WINDOW;
+}
+
 export default {
   async fetch(request) {
     if (request.method !== 'GET' && request.method !== 'HEAD') {
@@ -6,6 +33,18 @@ export default {
         headers: {
           'Allow': 'GET, HEAD',
           'Content-Type': 'text/plain; charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
+    }
+
+    const clientIp = request.headers.get('CF-Connecting-IP') || 'unknown';
+    if (clientIp !== 'unknown' && isRateLimited(clientIp)) {
+      return new Response('Too Many Requests\n', {
+        status: 429,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Retry-After': '60',
           'Access-Control-Allow-Origin': '*'
         }
       });
