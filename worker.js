@@ -1,12 +1,22 @@
 export default {
   async fetch(request) {
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      return new Response('Method Not Allowed\n', {
+        status: 405,
+        headers: {
+          'Allow': 'GET, HEAD',
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
+    }
+
     const url = new URL(request.url);
     const pathname = url.pathname.toLowerCase();
     const userAgent = (request.headers.get('user-agent') || '').toLowerCase();
 
     const customHeaders = {
       'Access-Control-Allow-Origin': '*',
-      'X-Powered-By': 'Cloudflare Workers & Ubuntu',
       'X-Author': 'Dulith Divisekara',
       'X-Status': 'Ready to build awesome things!'
     };
